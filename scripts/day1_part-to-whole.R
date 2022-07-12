@@ -52,7 +52,7 @@ ggplot(senators, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=party)) +
   coord_polar(theta="y") + 
   xlim(c(1, 4)) +
   theme_void() +
-  labs(title = "Party Affiliations of U.S. Senate") +
+  labs(title = "Party Affiliations of 2022 U.S. Senate") +
   theme(legend.position = "none",
         plot.background = element_rect(fill = "#f8eee3", color = "#f8eee3"),
         panel.background = element_rect(fill = "#f8eee3", color = "#f8eee3"),
@@ -60,12 +60,12 @@ ggplot(senators, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=party)) +
           family = "lobstertwo", 
           size = 24,
           face = "bold", 
-          color = "#2a475e", 
+          color = colors[1], 
           hjust = 0.5,
           vjust = -1.5))
 
 # save plot
 ggsave(filename = "./charts/day1_part-to-whole.jpeg",
-       width = 5,
+       width = 5.5,
        height = 5,
        device = "jpeg")
