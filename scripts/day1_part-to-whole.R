@@ -48,7 +48,7 @@ ggplot(senators, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=party)) +
   geom_rect() +
   scale_fill_manual(values = colors) +
   scale_color_manual(values = colors[4]) +
-  geom_label(x=3.5, aes(y=labelPosition, label=label, color = colors[4]), size=4) +
+  geom_label(x=3.5, aes(y=labelPosition, label=label, color = colors[4]), size=3) +
   coord_polar(theta="y") + 
   xlim(c(1, 4)) +
   theme_void() +
@@ -58,7 +58,7 @@ ggplot(senators, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=party)) +
         panel.background = element_rect(fill = "#f8eee3", color = "#f8eee3"),
         plot.title = element_text(
           family = "lobstertwo", 
-          size = 24,
+          size = 16,
           face = "bold", 
           color = colors[1], 
           hjust = 0.5,
@@ -66,6 +66,6 @@ ggplot(senators, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=party)) +
 
 # save plot
 ggsave(filename = "./charts/day1_part-to-whole.jpeg",
-       width = 5.5,
-       height = 5,
+       width = 3.5,
+       height = 3,
        device = "jpeg")

@@ -3,5 +3,5 @@ Creating different data visualizations for 30 days (https://30daychartchallenge.
 
 ### Day 1: Part of Whole 
 ***
-![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day1_part-to-whole.jpeg?raw=true){width=60%}
+![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day1_part-to-whole.jpeg?raw=true)
 
