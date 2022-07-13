@@ -8,3 +8,7 @@ Creating different data visualizations for 30 days (https://30daychartchallenge.
 ### Day 2: Pictogram
 ***
 ![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day2_pictogram.jpeg?raw=true)
+
+### Day 3: Historical
+***
+![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day3_historical2.jpeg?raw=true)
