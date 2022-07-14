@@ -12,3 +12,7 @@ Creating different data visualizations for 30 days (https://30daychartchallenge.
 ### Day 3: Historical
 ***
 ![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day3_historical2.jpeg?raw=true)
+
+### Day 4: Flora
+***
+![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day4_flora.jpeg?raw=true)
