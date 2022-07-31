@@ -20,3 +20,8 @@ Creating different data visualizations for 30 days (https://30daychartchallenge.
 ### Day 5: Slope
 ***
 ![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day5_slope.jpeg?raw=true)
+
+### Day 6: Our World In Data
+***
+![](https://github.com/hschmidt12/30DayChartChallenge-2022/blob/main/charts/day6_owid.jpeg?raw=true)
+

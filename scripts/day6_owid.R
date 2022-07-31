@@ -1,0 +1,73 @@
+# 30 Day Chart Challenge - 2022
+# day 6 - owid (comparisons)
+# Helen Schmidt
+
+# set working directory
+setwd("/Volumes/GoogleDrive/My Drive/30DayChartChallenge-2022")
+
+# load packages
+library(tidyverse)
+library(showtext)
+library(scales)
+library(MetBrewer)
+
+# load fonts for title
+font_add_google("Space Grotesk", "space")
+# automatically use showtext when needed
+showtext_auto()
+
+# define palette
+colors <- met.brewer("Hiroshige", n = 13)
+
+# load energy data from Our World in Data (https://github.com/owid/energy-data)
+energy <- read.csv("./data/owid-energy-data.csv") %>%
+  filter(country == "World") %>% # only use world data
+  filter(year >= 1965) %>% # only since 1965, when we have data
+  select(country, year, biofuel_consumption, coal_consumption, fossil_fuel_consumption,
+         gas_consumption, hydro_consumption, low_carbon_consumption, nuclear_consumption,
+         oil_consumption, other_renewable_consumption, primary_energy_consumption, 
+         renewables_consumption, solar_consumption, wind_consumption) # only consumption data
+
+# pivot longer
+energy.long <- pivot_longer(data = energy, 
+                     cols = biofuel_consumption:wind_consumption,
+                     names_to = "type",
+                     values_to = "consumption")
+
+# format names
+energy.long$type = substr(energy.long$type, 1, nchar(energy.long$type)-12)
+energy.long$type <- gsub("_"," ",energy.long$type)
+
+# plot
+ggplot(energy.long, aes(x = year, y = consumption, group = type, fill = type)) +
+  scale_fill_manual(values = colors) +
+  geom_area() +
+  theme_classic() +
+  xlab(NULL) + ylab("Energy Consumption (terrawatt-hours)") +
+  guides(fill = guide_legend(nrow = 13, title = "Worldwide Energy\nConsumption\n1965 - 2020\n")) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 8)) +
+  theme(legend.position = "right", 
+        legend.margin = margin(0,0,0,0),
+        legend.box.margin = margin(0,0,0,0),
+        legend.box.spacing = unit(0.1, units = "cm"),
+        panel.background = element_rect(fill = "#e8ded1", color = "#e8ded1"),
+        plot.background = element_rect(fill = "#e8ded1", color = "#e8ded1"),
+        legend.background = element_rect(fill = "#e8ded1", color = "#e8ded1"),
+        legend.text = element_text(size = 5, family = "space"),
+        legend.title = element_text(size = 6, family = "space", face = "bold"),
+        legend.key.size = unit(0.15, units = "cm"),
+        axis.title = element_text(family = "space", size = 6, face = "bold"),
+        axis.text = element_text(size = 5),
+        plot.title = element_text(
+          family = "space", 
+          size = 10,
+          face = "bold", 
+          color = "black", 
+          hjust = 0.25))
+
+# save plot
+ggsave(filename = "./charts/day6_owid.jpeg",
+       width = 3.5,
+       height = 3,
+       device = "jpeg")
